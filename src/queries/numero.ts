@@ -1,9 +1,9 @@
 'use client'
 import {getContador} from '@/services/numero'
-import { queryOptions, useMutation, useQueryClient } from '@tanstack/react-query'
+import { queryOptions } from '@tanstack/react-query'
 
 
-export const getValor = queryOptions({
+export const useGetValor = queryOptions({
     queryKey: ['valor'],
     queryFn: () => getContador(),
     // staleTime: Infinity,

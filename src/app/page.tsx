@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import {getValor} from '@/queries/numero'
+import {useGetValor} from '@/queries/numero'
 import {getContador} from '@/services/numero'
 import { HydrationBoundary, QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 import exp from 'constants';
@@ -8,7 +8,7 @@ import ComponentName from '@/components/mio'
 export default async function Page() {
     const queryClient = new QueryClient()
     await queryClient.prefetchQuery({
-        queryKey: getValor.queryKey,
+        queryKey: useGetValor.queryKey,
         queryFn: getContador
       })
       return (

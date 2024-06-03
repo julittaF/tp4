@@ -1,19 +1,16 @@
 'use client'
-import { getValor } from '@/queries/numero';
+import { useGetValor } from '@/queries/numero';
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
-interface Props {
-    // Define the props for your component here
-}
 
-const ComponentName: React.FC<Props> = () => {
-    // Implement your component logic here
-    const { data: valor, isLoading, isError } = useQuery(getValor);
-
+const ComponentName: React.FC = () => {
+    const { data: valor, isLoading, isError } = useQuery(useGetValor);
+    console.log(valor?.valor);
     return (
         <div>
-            {/* Render your component UI here */}
+            {valor?.valor}
+            <button>Actualizar</button>
         </div>
     );
 };

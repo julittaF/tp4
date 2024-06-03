@@ -1,9 +1,9 @@
 'use server'
-import prismaClient from '@/lib/prisma'
+import prisma from '@/lib/prisma'
 
 
 export async function getContador() {
-  return prismaClient.contador.findFirst() 
+  return prisma.contador.findFirst() 
 }
 
 // export async function incrementContador() {
