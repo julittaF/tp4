@@ -1,3 +1,4 @@
+'use client'
 import React, { use } from 'react';
 import {useGetValor} from '@/queries/numero'
 import {getContador} from '@/services/numero'

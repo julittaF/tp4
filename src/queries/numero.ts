@@ -1,6 +1,6 @@
 'use client'
-import {getContador} from '@/services/numero'
-import { queryOptions } from '@tanstack/react-query'
+import {getContador, incrementContador} from '@/services/numero'
+import { queryOptions, useMutation, useQueryClient } from '@tanstack/react-query'
 
 
 export const useGetValor = queryOptions({
@@ -10,15 +10,15 @@ export const useGetValor = queryOptions({
 
 })
 
-// export const incrementValor = () => {
-//     const queryClient = useQueryClient();
-//     return useMutation( {
-//         mutationKey : ['increment'],
-//         mutationFn: async () => { 
-//             return incrementContador()
-//         },
-//         onSuccess: () => {
-//             queryClient.invalidateQueries(getValor)
-//         },
-//     })
-// }
+export const incrementValor = () => {
+    const queryClient = useQueryClient();
+    return useMutation( {
+        mutationKey : ['increment'],
+        mutationFn: async () => { 
+            return incrementContador()
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries(useGetValor)
+        },
+    })
+}

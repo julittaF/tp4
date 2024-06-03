@@ -6,12 +6,12 @@ export async function getContador() {
   return prisma.contador.findFirst() 
 }
 
-// export async function incrementContador() {
-//   const contador = await prisma.contador.findFirst()
-//   if (!contador) throw new Error('Contador not found')
+export async function incrementContador() {
+  const contador = await prisma.contador.findFirst()
+  if (!contador) throw new Error('Contador not found')
 
-//   return prisma.contador.update({
-//     where: { id: contador.id },
-//     data: { valor: contador.valor + 1 },
-//   })
-// }
+  return prisma.contador.update({
+    where: { id: contador.id },
+    data: { valor: contador.valor + 1 },
+  })
+}
