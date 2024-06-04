@@ -2,13 +2,14 @@
 import { useGetValor, incrementValor } from '@/queries/numero';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-const ComponentName: React.FC = () => {
-    const { data: valor } = useQuery(useGetValor);
-    console.log(valor?.valor);
-    const { mutate: increment } = incrementValor();
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+const Menu: React.FC = () => {
+    const { data: valor } = useQuery(useGetValor); //esto me sirve para traer de la query el valor del contador :()
+    // console.log(valor?.valor);
+    const { mutate: increment } = incrementValor(); 
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => { //manejamos el evento de click
         event.preventDefault();
-        increment();
+        increment(); //llamamos a la función increment
     };
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '98vh', backgroundColor: '#f0f0f0' }}>
@@ -23,4 +24,4 @@ const ComponentName: React.FC = () => {
 };
 
 
-export default ComponentName;
+export default Menu;

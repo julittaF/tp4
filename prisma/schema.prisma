@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//modelos, sirven para definir la estructura de la base de datos ;)
 model Contador {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   valor Int
